@@ -1,0 +1,12 @@
+name 'kubernetes'
+maintainer 'Flexiant Ltd.'
+maintainer_email 'contact@flexiant.com'
+license 'All rights reserved'
+description 'Installs/Configures kubernetes'
+long_description 'Installs/Configures kubernetes'
+version '0.1.0'
+
+depends 'compat_resource', '>= 12.5.23'
+depends 'docker', '~> 2.0'
+depends 'tar', '~> 0.7.0'
+depends 'etcd', '~> 3.0'

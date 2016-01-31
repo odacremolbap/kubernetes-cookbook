@@ -1,0 +1,36 @@
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/kubernetes/kubernetes/
+<% unless @requires.nil?
+  @requires.each do |value|
+%>Requires=<%= value %>
+<% end %>
+<% @after.each do |value|
+%>After=<%= value %>
+<% end
+end %>
+
+[Service]
+<% unless @environment.nil?
+  @environment.each do |key, value|
+%>Environment="<%= key %>=<%= value %>"
+<% end
+end
+unless @service_user.nil? || @service_user.empty?%>
+User=<%= @service_user %>
+<% end %>
+ExecStart=<%= @daemon_start %><%
+unless @parameters.nil?
+  @parameters.each do |key, value|
+%> --<%= key %>=<%= value %><% end
+end %>
+
+<% unless @options.nil?
+  @options.each do |key, value| %>
+<%= "#{key}=#{value}" %>
+<% end
+end %>
+
+
+[Install]
+WantedBy=multi-user.target

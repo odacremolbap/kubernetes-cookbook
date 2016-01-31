@@ -5,9 +5,9 @@ module KubernetesCookbook
     provides :kubernetes_kubelet_service_manager
     property :default_location, String, default: lazy { kubeconfig_default_location }, required: true
     property :file_name, String, required: true
-    property :clusters, Hash, required: true
-    property :users, Hash, required: true
-    property :contexts, Hash, required: true
+    property :clusters, Array, required: true
+    property :users, Array, required: true
+    property :contexts, Array, required: true
     property :current_context, String, required: true
 
     action :create do

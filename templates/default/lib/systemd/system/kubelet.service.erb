@@ -19,7 +19,7 @@ end
 unless @service_user.nil? || @service_user.empty?%>
 User=<%= @service_user %>
 <% end %>
-ExecStartPre=/usr/bin/mkdir -p <%= @manifest_dir %>
+ExecStartPre=/bin/mkdir -p <%= @manifest_dir %>
 ExecStart=<%= @daemon_start %><%
 unless @parameters.nil?
   @parameters.each do |key, value|

@@ -2,7 +2,6 @@ module KubernetesCookbook
   class KubernetesKubeconfig < ChefCompat::Resource
     use_automatic_resource_name
 
-    provides :kubernetes_kubelet_service_manager
     property :location, String, default: lazy { kubeconfig_default_location }, required: true
     property :file_name, String, required: true
     property :clusters, Array, required: true

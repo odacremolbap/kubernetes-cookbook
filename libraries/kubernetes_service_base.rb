@@ -11,7 +11,7 @@ module KubernetesCookbook
 
     property :environment, Hash, default: lazy { default_environment }
     property :parameters, Hash, default: lazy {default_parameters }
-    property :auto_restart, Boolean, default: false
+    property :auto_restart, Boolean, default: true
 
     def default_environment
       {}

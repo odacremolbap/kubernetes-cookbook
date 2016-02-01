@@ -3,7 +3,7 @@ module KubernetesCookbook
     use_automatic_resource_name
 
     provides :kubernetes_kubelet_service_manager
-    property :default_location, String, default: lazy { kubeconfig_default_location }, required: true
+    property :location, String, default: lazy { kubeconfig_default_location }, required: true
     property :file_name, String, required: true
     property :clusters, Array, required: true
     property :users, Array, required: true
@@ -11,14 +11,14 @@ module KubernetesCookbook
     property :current_context, String, required: true
 
     action :create do
-      directory default_location do
+      directory location do
         owner 'root'
         group 'root'
         mode '0755'
         action :create
       end
 
-      template ::File.join(default_location, file_name) do
+      template ::File.join(location, file_name) do
         source 'etc/default/kubeconfig.erb'
         owner 'root'
         group 'root'

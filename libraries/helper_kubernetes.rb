@@ -25,6 +25,9 @@ module KubernetesCookbook
       def controller_binary_name
         'kube-controller-manager'
       end
+      def controller_proxy_name
+        'kube-proxy'
+      end
 
       def apiserver_cmd
         ::File.join(kubernetes_bin_prefix, apiserver_binary_name)
@@ -40,6 +43,10 @@ module KubernetesCookbook
 
       def controller_cmd
         ::File.join(kubernetes_bin_prefix, controller_binary_name)
+      end
+
+      def proxy_cmd
+        ::File.join(kubernetes_bin_prefix, controller_proxy_name)
       end
 
     end

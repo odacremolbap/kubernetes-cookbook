@@ -45,7 +45,7 @@ module KubernetesCookbook
     end
 
     action :start do
-      service 'proxy' do
+      service 'kube-proxy' do
         provider Chef::Provider::Service::Systemd
         supports status: true
         action [:enable, :start]
@@ -54,7 +54,7 @@ module KubernetesCookbook
     end
 
     action :stop do
-      service 'proxy' do
+      service 'kube-proxy' do
         provider Chef::Provider::Service::Systemd
         supports status: true
         action [:stop]
